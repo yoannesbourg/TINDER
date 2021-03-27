@@ -1,9 +1,9 @@
 CREATE DATABASE tinder;
 
-CREATE TABLE tinder_users (
- user_id SERIAL PRIMARY KEY,
- user_name varchar(255),
- user_photo varchar(255),
- user_date_of_birth integer,
- user_description varchar(255)
+CREATE TABLE users (
+ id SERIAL PRIMARY KEY,
+ name varchar(255) NOT NULL,
+ photo varchar(255) NOT NULL,
+ birthdate integer NOT NULL,
+ description varchar(255) NOT NULL
 );
