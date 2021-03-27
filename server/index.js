@@ -13,7 +13,9 @@ app.use(express.json()) //req.body
 //Create user
 app.post("/users", async (req, res) => {
     try {
-        console.log(req.body)
+        const { description } = req.body
+        const newDescription = await pool.query("INSERT INTO users (description) VALUES($1) RETURNING *", [description])
+        res.json(newDescription.rows[0])
     } catch (err) {
         console.error(err)
     }
