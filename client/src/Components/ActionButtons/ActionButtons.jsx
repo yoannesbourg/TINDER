@@ -3,7 +3,7 @@ import '../../App.css';
 const ActionButtons = () => {
   return (
     <div>
-      Card
+      Buttons
     </div>
   );
 }
