@@ -5,7 +5,7 @@ import { AiFillMessage } from "react-icons/ai";
 
 const Navigation = () => {
   return (
-    <div>
+    <div className="navigation">
       <AiOutlineUser />
       <AiFillFire />
       <AiFillMessage />
