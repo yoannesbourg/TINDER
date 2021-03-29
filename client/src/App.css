@@ -13,10 +13,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: var(--GreyText);
   box-shadow: 0 0 6px 2px #a0a0a0;
   border-radius: 20px;
 }
 
+/* Navigation */
+.navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 16px;
+}
+
+/* Profile Card */
+.profile-card {
+  background-color: var(--PastelRed);
+  width: 100%;
+  height: 350px;
+  margin-top: 16px;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 16px;
+}
