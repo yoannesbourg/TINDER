@@ -44,16 +44,16 @@ app.get("/users/:id", async (req, res) => {
     }
 })
 
-//Delete user
-// app.delete("/users/:id", async (req, res) => {
-//     try {
-//         const { id } = req.params
-//         const deleteTodo = await pool.query("DELETE FROM users WHERE id = $1", [id])
-//         res.json("User was deleted")
-//     } catch (err) {
-//         console.error(err)
-//     }
-// })
+// Delete user
+app.delete("/users/:id", async (req, res) => {
+    try {
+        const { id } = req.params
+        const deleteTodo = await pool.query("DELETE FROM users WHERE id = $1", [id])
+        res.json("User was deleted")
+    } catch (err) {
+        console.error(err)
+    }
+})
 
 
 app.listen(5000, () => {
