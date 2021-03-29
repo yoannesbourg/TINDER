@@ -2,11 +2,12 @@ const express = require("express")
 const app = express()
 const cors = require("cors")
 const pool = require("./db")
-
+const bodyParser = require('body-parser')
 
 //middleware
 app.use(cors())
-app.use(express.json()) //req.body
+// app.use(express.json()) //req.body
+app.use(bodyParser.json())
 
 //ROUTES
 
@@ -39,7 +40,7 @@ app.delete("/users/:id", async (req, res) => {
     try {
         const { id } = req.params
         const deleteTodo = await pool.query("DELETE FROM users WHERE id = $1", [id])
-        res.json("todo was deleted")
+        res.json("User was deleted")
     } catch (err) {
         console.error(err)
     }
