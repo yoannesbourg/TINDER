@@ -17,7 +17,7 @@ const ActionButton = styled.button`
  border: none;
  width: 60px;
  height: 60px;
- margin: 16px 0;
+ margin: 32px 0;
  border-radius: 50%;
  font-size: 25px;
  display: flex;

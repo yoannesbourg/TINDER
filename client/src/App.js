@@ -13,8 +13,6 @@ const AppMain = styled.main`
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: var(--GreyText);
-  box-shadow: 0 0 6px 2px #a0a0a0;
-  border-radius: 20px;
 `
 
 const App = () => {

@@ -11,11 +11,13 @@ const ProfileCard = ({userData}) => {
     background-color: var(--PastelRed);
     width: 100%;
     height: 350px;
-    margin-top: 16px;
+    margin-top: 32px;
     display: flex;
     align-items: flex-end;
     padding-left: 16px;
     background-image: url(${userData.photo});
+    box-shadow: 0 0 6px 2px #a0a0a0;
+    border-radius: 20px;
  `
   return (
     <Card>
