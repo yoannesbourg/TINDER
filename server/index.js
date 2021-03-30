@@ -55,6 +55,15 @@ app.delete("/users/:id", async (req, res) => {
     }
 })
 
+//Get all Id
+app.get("/users", async (req, res) => {
+    try {
+        
+    } catch (err) {
+        console.error(err)
+    }
+})
+
 
 app.listen(5000, () => {
     console.log("server has started on port 5000")
