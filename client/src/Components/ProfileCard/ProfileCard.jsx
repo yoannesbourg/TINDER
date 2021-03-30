@@ -1,41 +1,21 @@
-import { useEffect, useState } from 'react';
-import '../../App.css';
 import styled from "styled-components"
 
-const ProfileCard = () => {
-  const [data, setData] = useState({})
-
-  const getData = async () => {
-    try {
-        const response = await fetch("http://localhost:5000/users/14")
-        const jsonData = await response.json()
-        setData(jsonData)
-        // console.log(jsonData[0].photo)
-    } catch (err) {
-        console.error(err)
-    }
-  } 
-
-  useEffect(() => {
-    getData()
-  }, [])
-  console.log(data)
+const ProfileCard = ({userData}) => {
  
  const Card = styled.div`
     background-color: var(--PastelRed);
+    color: var(--white);
     width: 100%;
     height: 350px;
     margin-top: 16px;
     display: flex;
     align-items: flex-end;
     padding-left: 16px;
-    
+    background-image: url(${userData.photo});
  `
- 
-
   return (
     <Card>
-      <h2 className="user-name">Name, 25</h2>
+      <h2>{userData.name}, 25</h2>
     </Card>
   );
 }
