@@ -16,13 +16,16 @@ const ProfileCard = ({userData}) => {
     align-items: flex-end;
     padding-left: 16px;
     background-image: url(${userData.photo});
+    background-size:cover;
     box-shadow: 0 0 6px 2px #a0a0a0;
     border-radius: 20px;
  `
+
+// background-image: url(${userData.photo});
   return (
     <Card>
       <CardTitle>{userData.name}, 25</CardTitle>
-    </Card>
+    </Card> 
   );
 }
 
