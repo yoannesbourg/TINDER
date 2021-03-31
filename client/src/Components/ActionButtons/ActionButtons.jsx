@@ -1,6 +1,5 @@
 import '../../App.css'
 import styled from "styled-components"
-import { AiOutlineClose } from "react-icons/ai"
 import { BsHeartFill } from "react-icons/bs"
 import { BsStarFill } from "react-icons/bs"
 import { HiX } from "react-icons/hi";
@@ -25,6 +24,16 @@ const ActionButton = styled.button`
  align-items: center;
  box-shadow: 0 0 6px 2px #a0a0a0;
  outline: none;
+ transition: ease-in-out .2s;
+
+ &:hover {
+  opacity: .8;
+ }
+ &:active {
+  width: 50px;
+  height: 50px;
+  
+ }
 `
 
 const Dislike = styled(ActionButton)`
