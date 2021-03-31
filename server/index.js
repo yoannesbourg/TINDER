@@ -6,7 +6,6 @@ const bodyParser = require('body-parser')
 
 //middleware
 app.use(cors())
-// app.use(express.json()) //req.body
 app.use(bodyParser.json())
 
 //ROUTES
@@ -25,7 +24,7 @@ app.post("/users", async (req, res) => {
 // //Get all user 
 app.get("/users", async (req, res) => {
     try {
-        const { description } = req.query
+        // const { description } = req.query
         const allUsers = await pool.query("SELECT * FROM users")
         res.json(allUsers.rows)
     } catch (error) {
@@ -56,9 +55,11 @@ app.delete("/users/:id", async (req, res) => {
 })
 
 //Get all Id
-app.get("/users", async (req, res) => {
+app.get("/ids", async (req, res) => {
     try {
-        
+        const allUsersId = await pool.query("SELECT id FROM users")
+        console.log(allUsersId)
+        res.json(allUsersId.rows)
     } catch (err) {
         console.error(err)
     }
