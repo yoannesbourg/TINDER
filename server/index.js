@@ -62,14 +62,22 @@ app.delete("/users/:id", async (req, res) => {
 })
 
 //Get all Id
-app.get("/ids", async (req, res) => {
+app.get("/user", async (req, res) => {
     try {
         const ids = []
+
+        //Get ids
         const getAllUsersId = await pool.query("SELECT id FROM users")
         const allUsersIds = getAllUsersId.rows
+
+        //Push them into a array
         allUsersIds.map(item => ids.push(item.id))
         const randomId = ids[randomIndex(ids)]
-        res.send(`${randomId}`)
+
+        //Select a user
+        const user = await pool.query("SELECT * FROM users WHERE id = $1", [randomId])
+        res.json(user.rows)
+
     } catch (err) {
         console.error(err)
     }
