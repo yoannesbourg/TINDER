@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { BsHeartFill } from "react-icons/bs"
 import { BsStarFill } from "react-icons/bs"
 import { HiX } from "react-icons/hi";
+import { updateUser } from '../updateUser'
 
 
 const ActionContainer = styled.div`
@@ -30,9 +31,7 @@ const ActionButton = styled.button`
   opacity: .8;
  }
  &:active {
-  width: 50px;
-  height: 50px;
-  
+transform: scale(.9);
  }
 `
 
@@ -47,11 +46,13 @@ const Superlike = styled(ActionButton)`
   margin-left: 16px;
 `
 
-const Like = styled(ActionButton)`
+const Like = styled(ActionButton)``
 
-`
+const handleLike = () => {
+  console.log('liked!')
+}
 
-const ActionButtons = () => {
+const ActionButtons = ({id}) => {
   return (
     <ActionContainer>
       <Dislike>
@@ -62,7 +63,7 @@ const ActionButtons = () => {
         <BsStarFill/>
       </Superlike>
       
-      <Like>
+      <Like onClick={handleLike}>
         <BsHeartFill/>
       </Like>
     </ActionContainer>

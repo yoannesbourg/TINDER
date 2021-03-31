@@ -39,7 +39,7 @@ const App = () => {
       <AppMain>
         <Navigation />
          {!user? <p>Loading</p> : <ProfileCard userData={user[0]}/> }
-        <ActionButtons />
+        <ActionButtons id={user[0].id}/>
       </AppMain>
     </div>
   );
