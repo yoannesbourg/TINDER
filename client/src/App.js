@@ -17,40 +17,28 @@ const AppMain = styled.main`
 
 const App = () => {
 
-  const [ids, addId] = useState([])  
-  
-  const getUsersIds = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/ids")
-      const jsonData = await response.json()  
-      jsonData.map(item => addId(prev => [...prev, item.id]))
-  } catch (err) {
-    console.error(err)
-  }
-  }
-  
-  
+  const [user, setUser] = useState()
 
-  const getUserData = async (id) => {
-      try {
-        const response = await fetch(`http://localhost:5000/users/${id}`)
+  const getUser = async () => {
+    try {
+        const response = await fetch("http://localhost:5000/user")
         const jsonData = await response.json()
-        return jsonData
+        setUser(jsonData)
+        
     } catch (err) {
         console.error(err)
     }
-  }
-
+  } 
 
   useEffect(() => {
-    getUsersIds()
+    getUser()
   }, []) 
 
   return (
     <div className="App">
       <AppMain>
         <Navigation />
-         {getUserData(ids[randomIndex()])}
+         {!user? <p>Loading</p> : <ProfileCard userData={user[0]}/> }
         <ActionButtons />
       </AppMain>
     </div>
