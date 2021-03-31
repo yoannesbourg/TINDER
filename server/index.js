@@ -58,7 +58,6 @@ app.delete("/users/:id", async (req, res) => {
 app.get("/ids", async (req, res) => {
     try {
         const allUsersId = await pool.query("SELECT id FROM users")
-        console.log(allUsersId)
         res.json(allUsersId.rows)
     } catch (err) {
         console.error(err)
