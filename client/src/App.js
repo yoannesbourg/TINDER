@@ -20,6 +20,15 @@ const App = () => {
   const [user, setUser] = useState({})
   const [isLoading, setIsLoading] = useState(false)
 
+  const getAllIds = async () => {
+    try {
+        const response = await fetch("http://localhost:5000/ids")
+        const jsonData = await response.json()
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   const getData = async () => {
     try {
         const response = await fetch("http://localhost:5000/users/14")
@@ -32,9 +41,9 @@ const App = () => {
   } 
 
   useEffect(() => {
+    getAllIds()
     getData()
   }, [])
-  console.log(user)
 
   return (
     <div className="App">
