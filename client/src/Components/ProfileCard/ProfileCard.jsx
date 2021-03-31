@@ -6,7 +6,6 @@ const CardTitle = styled.h2`
 `
 
 const ProfileCard = ({userData}) => {
- 
  const Card = styled.div`
     background-color: var(--PastelRed);
     width: 100%;
@@ -17,11 +16,11 @@ const ProfileCard = ({userData}) => {
     padding-left: 16px;
     background-image: url(${userData.photo});
     background-size:cover;
+    background-position: center;
     box-shadow: 0 0 6px 2px #a0a0a0;
     border-radius: 20px;
  `
 
-// background-image: url(${userData.photo});
   return (
     <Card>
       <CardTitle>{userData.name}, 25</CardTitle>

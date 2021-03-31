@@ -8,6 +8,13 @@ const bodyParser = require('body-parser')
 app.use(cors())
 app.use(bodyParser.json())
 
+
+
+//Helpers
+const randomIndex = (arr) => {
+    return Math.floor(Math.random() * arr.length)
+}
+
 //ROUTES
 
 //Create user
@@ -57,8 +64,12 @@ app.delete("/users/:id", async (req, res) => {
 //Get all Id
 app.get("/ids", async (req, res) => {
     try {
-        const allUsersId = await pool.query("SELECT id FROM users")
-        res.json(allUsersId.rows)
+        const ids = []
+        const getAllUsersId = await pool.query("SELECT id FROM users")
+        const allUsersIds = getAllUsersId.rows
+        allUsersIds.map(item => ids.push(item.id))
+        const randomId = ids[randomIndex(ids)]
+        res.send(`${randomId}`)
     } catch (err) {
         console.error(err)
     }
