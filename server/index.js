@@ -61,7 +61,19 @@ app.delete("/users/:id", async (req, res) => {
     }
 })
 
-//Get all Id
+//Update user
+app.put("/users/:id", async (req, res) => {
+    try {
+        const { id } = req.params
+        const { description } = req.body
+        await pool.query("UPDATE users SET name = 'Matched' WHERE id = $1", [id])
+        res.json("user liked")
+    } catch (err) {
+        console.error(err)
+    }
+})
+
+//Get random user
 app.get("/user", async (req, res) => {
     try {
         const ids = []
