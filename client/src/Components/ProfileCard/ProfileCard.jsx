@@ -1,13 +1,22 @@
 import styled from "styled-components"
+import { RiLoader5Line } from "react-icons/ri"
 
 const CardTitle = styled.h2`
   color: var(--white);
   text-shadow: 2px 2px 2px #5e5e5e;
 `
 
+const Loader = styled.div`
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 const ProfileCard = ({userData}) => {
+
  const Card = styled.div`
-    background-color: var(--PastelRed);
     width: 100%;
     height: 350px;
     margin-top: 32px;
@@ -22,10 +31,22 @@ const ProfileCard = ({userData}) => {
  `
 
   return (
-    <Card>
-      <CardTitle>{userData.name}, 25</CardTitle>
-    </Card> 
-  );
+    <>
+      {!userData?
+      <Loader>
+        <div className='loader'><RiLoader5Line/></div>
+      </Loader>
+      :
+      <Card>
+        <CardTitle>{userData.name}, 25</CardTitle>
+      </Card>  
+       }
+    </>
+
+  )
 }
 
-export default ProfileCard;
+export default ProfileCard
+
+
+  
