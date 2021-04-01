@@ -33,7 +33,6 @@ const App = () => {
 
   const handleClick = () => {
     click(!clicked)
-    console.log(clicked)
   }
 
   useEffect(() => {

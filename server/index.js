@@ -31,7 +31,6 @@ app.post("/users", async (req, res) => {
 // //Get all user 
 app.get("/users", async (req, res) => {
     try {
-        // const { description } = req.query
         const allUsers = await pool.query("SELECT * FROM users")
         res.json(allUsers.rows)
     } catch (err) {

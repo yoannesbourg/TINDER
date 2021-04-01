@@ -58,12 +58,10 @@ const ActionButtons = ({id, click}) => {
   const updateUser = async (e) => {
     e.preventDefault()
     try {
-      
-      const body = { description }
+  
       const response = await fetch(`http://localhost:5000/users/${id}`, {
         method: "PUT",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(body)        
+        headers: {"Content-Type": "application/json"}    
       })
 
     } catch (err) {
