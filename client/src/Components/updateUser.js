@@ -1,5 +1,5 @@
-export const updateUser = async ( e, id) => {
-    e.preventDefault()
+export const updateUser = async (id) => {
+    // e.preventDefault()
     try {
 
         await fetch(`http://localhost:5000/todos/${id}`, {

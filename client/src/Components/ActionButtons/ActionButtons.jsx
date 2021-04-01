@@ -3,7 +3,8 @@ import styled from "styled-components"
 import { BsHeartFill } from "react-icons/bs"
 import { BsStarFill } from "react-icons/bs"
 import { HiX } from "react-icons/hi"
-import { updateUser } from '../updateUser'
+import { useState } from 'react'
+// import { updateUser } from '../updateUser'
 
 
 
@@ -49,11 +50,27 @@ const Superlike = styled(ActionButton)`
 
 const Like = styled(ActionButton)``
 
-const handleLike = () => {
-  console.log('liked!')
-}
 
 const ActionButtons = ({id}) => {
+
+  const [description, setDescription] = useState('its matched')
+
+  const updateUser = async (e) => {
+    e.preventDefault()
+    try {
+      
+      const body = { description }
+      const response = await fetch(`http://localhost:5000/users/${id}`, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(body)        
+      })
+      console.log(response)
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
+
   return (
     <ActionContainer>
       <Dislike>
@@ -64,7 +81,9 @@ const ActionButtons = ({id}) => {
         <BsStarFill/>
       </Superlike>
       
-      <Like onClick={handleLike}>
+      <Like onClick={(e)=> {
+        updateUser(e)
+      }}>
         <BsHeartFill/>
       </Like>
     </ActionContainer>

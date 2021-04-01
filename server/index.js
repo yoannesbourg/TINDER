@@ -34,8 +34,8 @@ app.get("/users", async (req, res) => {
         // const { description } = req.query
         const allUsers = await pool.query("SELECT * FROM users")
         res.json(allUsers.rows)
-    } catch (error) {
-        console.error(error.message)
+    } catch (err) {
+        console.error(err)
     }
 })
 
@@ -45,8 +45,8 @@ app.get("/users/:id", async (req, res) => {
         const { id } = req.params
         const user = await pool.query("SELECT * FROM users WHERE id = $1", [id])
         res.json(user.rows)
-    } catch (error) {
-        
+    } catch (err) {
+        console.error(err)
     }
 })
 
@@ -61,16 +61,18 @@ app.delete("/users/:id", async (req, res) => {
     }
 })
 
-//Update user
+
+
 app.put("/users/:id", async (req, res) => {
     try {
         const { id } = req.params
-        await pool.query("UPDATE users SET name = 'Matched' WHERE id = $1", [id])
-        res.json("user liked")
+        const updateTodo = await pool.query("UPDATE users SET liked = true WHERE id = $1", [id])
+        res.json('liked')
     } catch (err) {
         console.error(err)
     }
 })
+
 
 //Get random user
 app.get("/user", async (req, res) => {
