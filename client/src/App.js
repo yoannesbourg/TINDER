@@ -17,7 +17,7 @@ const AppMain = styled.main`
 
 const App = () => {
 
-  const [user, setUser] = useState()
+  const [user, setUser] = useState([{}])
 
   const getUser = async () => {
     try {
@@ -32,7 +32,7 @@ const App = () => {
 
   useEffect(() => {
     getUser()
-  }, []) 
+  },[]) 
 
   return (
     <div className="App">
