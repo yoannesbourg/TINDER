@@ -2,8 +2,9 @@ import '../../App.css'
 import styled from "styled-components"
 import { BsHeartFill } from "react-icons/bs"
 import { BsStarFill } from "react-icons/bs"
-import { HiX } from "react-icons/hi";
+import { HiX } from "react-icons/hi"
 import { updateUser } from '../updateUser'
+
 
 
 const ActionContainer = styled.div`
