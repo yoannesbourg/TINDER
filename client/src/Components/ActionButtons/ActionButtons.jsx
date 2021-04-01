@@ -51,7 +51,7 @@ const Superlike = styled(ActionButton)`
 const Like = styled(ActionButton)``
 
 
-const ActionButtons = ({id}) => {
+const ActionButtons = ({id, click}) => {
 
   const [description, setDescription] = useState('its matched')
 
@@ -65,7 +65,7 @@ const ActionButtons = ({id}) => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body)        
       })
-      console.log(response)
+           
     } catch (err) {
       console.error(err.message)
     }
@@ -82,6 +82,7 @@ const ActionButtons = ({id}) => {
       </Superlike>
       
       <Like onClick={(e)=> {
+        click()
         updateUser(e)
       }}>
         <BsHeartFill/>

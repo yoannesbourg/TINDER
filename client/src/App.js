@@ -18,6 +18,7 @@ const AppMain = styled.main`
 const App = () => {
 
   const [user, setUser] = useState([{}])
+  const [clicked, click] = useState(false)
 
   const getUser = async () => {
     try {
@@ -30,16 +31,21 @@ const App = () => {
     }
   } 
 
+  const handleClick = () => {
+    click(!clicked)
+    console.log(clicked)
+  }
+
   useEffect(() => {
     getUser()
-  },[]) 
+  },[clicked]) 
 
   return (
     <div className="App">
       <AppMain>
         <Navigation />
          {!user? <p>Loading</p> : <ProfileCard userData={user[0]}/> }
-        <ActionButtons id={user[0].id}/>
+        <ActionButtons id={user[0].id} click={handleClick}/>
       </AppMain>
     </div>
   );

@@ -32,7 +32,6 @@ const ProfileCard = ({userData}) => {
   
   return (
     <>
-    <p>Match</p>
       {!userData?
       <Loader>
         <div className='loader'><RiLoader5Line/></div>
