@@ -65,7 +65,7 @@ const ActionButtons = ({id, click}) => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body)        
       })
-           
+
     } catch (err) {
       console.error(err.message)
     }
@@ -73,7 +73,10 @@ const ActionButtons = ({id, click}) => {
 
   return (
     <ActionContainer>
-      <Dislike>
+      <Dislike onClick={(e)=> {
+        click()
+        updateUser(e)
+      }}>
         <HiX/>
       </Dislike>
       
