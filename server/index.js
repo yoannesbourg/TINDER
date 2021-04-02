@@ -79,7 +79,7 @@ app.get("/user", async (req, res) => {
         const ids = []
 
         //Get ids
-        const getAllUsersId = await pool.query("SELECT id FROM users")
+        const getAllUsersId = await pool.query("SELECT id FROM users WHERE liked = false")
         const allUsersIds = getAllUsersId.rows
 
         //Push them into a array
