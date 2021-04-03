@@ -18,7 +18,7 @@ const AppMain = styled.main`
 const App = () => {
 
   const [user, setUser] = useState([{}])
-  const [clicked, click] = useState(false)
+
 
   const getUser = async () => {
     try {
@@ -32,12 +32,10 @@ const App = () => {
   } 
 
   const handleClick = () => {
-    click(!clicked)
+    getUser()
   }
 
-  useEffect(() => {
-    getUser()
-  },[clicked]) 
+
 
   return (
     <div className="App">
