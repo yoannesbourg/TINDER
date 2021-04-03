@@ -3,12 +3,15 @@ const app = express()
 const cors = require("cors")
 const pool = require("./db")
 const bodyParser = require('body-parser')
+const logger = require('morgan')
+
+app.use(logger('dev'))
 
 //middleware
 app.use(cors())
 app.use(bodyParser.json())
 
-
+app.use('/users', router)
 
 //Helpers
 const randomIndex = (arr) => {
@@ -61,7 +64,7 @@ app.delete("/users/:id", async (req, res) => {
 })
 
 
-
+//Set liked to true
 app.put("/users/:id", async (req, res) => {
     try {
         const { id } = req.params
@@ -74,16 +77,14 @@ app.put("/users/:id", async (req, res) => {
 
 
 //Get random user
-app.get("/user", async (req, res) => {
+app.get("/users/user", async (req, res) => {
     try {
-        const ids = []
-
         //Get ids
         const getAllUsersId = await pool.query("SELECT id FROM users WHERE liked = false")
         const allUsersIds = getAllUsersId.rows
 
         //Push them into a array
-        allUsersIds.map(item => ids.push(item.id))
+        const ids = allUsersIds.map(item => item.id)
         const randomId = ids[randomIndex(ids)]
 
         //Select a user
@@ -92,10 +93,11 @@ app.get("/user", async (req, res) => {
 
     } catch (err) {
         console.error(err)
+        res.json({error: 'error cannot fetch user'})
     }
 })
 
 
-app.listen(5000, () => {
+app.listen(5000 || PORT, () => {
     console.log("server has started on port 5000")
 })
