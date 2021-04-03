@@ -1,9 +1,18 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { RiLoader5Line } from "react-icons/ri"
 
 const CardTitle = styled.h2`
   color: var(--white);
   text-shadow: 2px 2px 2px #5e5e5e;
+`
+
+const loading = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);  
+  }
 `
 
 const Loader = styled.div`
@@ -12,6 +21,7 @@ const Loader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: ${loading} infinite .5s linear;
 `
 
 const ProfileCard = ({userData}) => {
@@ -32,15 +42,15 @@ const ProfileCard = ({userData}) => {
   
   return (
     <>
-      {!userData?
-      <Loader>
-        <div className='loader'><RiLoader5Line/></div>
-      </Loader>
-      :
-      <Card>
-        <CardTitle>{userData.name}, 25</CardTitle>
-      </Card>  
-       }
+      {!userData.name?
+        <Loader>
+          <RiLoader5Line/>
+        </Loader>
+        :
+        <Card>
+          <CardTitle>{userData.name}, 25</CardTitle>
+        </Card>  
+      }       
     </>
 
   )
@@ -49,4 +59,3 @@ const ProfileCard = ({userData}) => {
 export default ProfileCard
 
 
-  
