@@ -68,7 +68,7 @@ app.delete("/users/:id", async (req, res) => {
 app.put("/users/:id", async (req, res) => {
     try {
         const { id } = req.params
-        const updateTodo = await pool.query("UPDATE users SET liked = true WHERE id = $1", [id])
+        const updateTodo = await pool.query("UPDATE users SET swiped = true WHERE id = $1", [id])
         res.json('liked')
     } catch (err) {
         console.error(err)
@@ -94,6 +94,17 @@ app.get("/user", async (req, res) => {
     } catch (err) {
         console.error(err)
         res.json({error: 'error cannot fetch user'})
+    }
+})
+
+// Get if user liked you or not
+app.get("/liked/:id", async (req, res) => {
+    try {
+        const { id } = req.params
+        const user = await pool.query("SELECT * FROM users WHERE id = $1", [id])
+        res.json(user.rows[0].liked)
+    } catch (err) {
+        console.error(err)
     }
 })
 
