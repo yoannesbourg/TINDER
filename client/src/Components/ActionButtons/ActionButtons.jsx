@@ -69,6 +69,21 @@ const ActionButtons = ({id, click}) => {
     }
   }
 
+  const getMatch = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/liked/${id}`)
+      const jsonData = await response.json()
+      return console.log(jsonData)
+      
+  } catch (err) {
+      console.error(err)
+  }
+  }
+  
+  const handleMatch = () => {
+    
+  }
+
   return (
     <ActionContainer>
       <Dislike onClick={(e)=> {
@@ -85,6 +100,9 @@ const ActionButtons = ({id, click}) => {
       <Like onClick={(e)=> {
         click()
         updateUser(e)
+        if (getMatch()) {
+          handleMatch()
+        }
       }}>
         <BsHeartFill/>
       </Like>
