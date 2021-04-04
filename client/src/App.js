@@ -15,6 +15,15 @@ const AppMain = styled.main`
   color: var(--GreyText);
 `
 
+const NoMoreUsers = styled.div`
+width: 100%;
+height: 350px;
+margin-top: 32px;
+display: flex;
+align-items: center;
+justify-content: center;
+`
+
 const App = () => {
 
   const [user, setUser] = useState([{}])
@@ -34,12 +43,12 @@ const App = () => {
   const handleClick = () => {
     getUser()
   }
-
+ 
   return (
     <div className="App">
       <AppMain>
         <Navigation />
-         {!user? <p>Loading</p> : <ProfileCard userData={user[0]}/> }
+         {!user[0].name? <NoMoreUsers><p>No more users to swipe</p></NoMoreUsers> : <ProfileCard userData={user[0]}/>}
         <ActionButtons id={user[0].id} click={handleClick}/>
       </AppMain>
     </div>
