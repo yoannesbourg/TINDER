@@ -11,7 +11,7 @@ app.use(logger('dev'))
 app.use(cors())
 app.use(bodyParser.json())
 
-app.use('/users', router)
+
 
 //Helpers
 const randomIndex = (arr) => {
@@ -77,7 +77,7 @@ app.put("/users/:id", async (req, res) => {
 
 
 //Get random user
-app.get("/users/user", async (req, res) => {
+app.get("/user", async (req, res) => {
     try {
         //Get ids
         const getAllUsersId = await pool.query("SELECT id FROM users WHERE liked = false")

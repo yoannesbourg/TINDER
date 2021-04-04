@@ -35,8 +35,6 @@ const App = () => {
     getUser()
   }
 
-
-
   return (
     <div className="App">
       <AppMain>
