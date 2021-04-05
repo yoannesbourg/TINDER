@@ -24,7 +24,7 @@ const Loader = styled.div`
   animation: ${loading} infinite .5s linear;
 `
 
-const ProfileCard = ({userData}) => {
+const ProfileCard = ({userData, matched}) => {
 
  const Card = styled.div`
     width: 100%;
@@ -38,7 +38,35 @@ const ProfileCard = ({userData}) => {
     background-position: center;
     box-shadow: 0 0 6px 2px #a0a0a0;
     border-radius: 20px;
+    position: relative;
+
+    &:before {
+      background-color: black;
+      content: "";
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      position: absolute;
+      opacity: 0.7;
+      z-index: 1;
+      border-radius: 20px;
+    }
  `
+
+  const oldCard = styled.div`
+    width: 100%;
+    height: 350px;
+    margin-top: 32px;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 16px;
+    background-image: url(${userData.photo});
+    background-size:cover;
+    background-position: center;
+    box-shadow: 0 0 6px 2px #a0a0a0;
+    border-radius: 20px;
+  `
 
   return (
     <>
