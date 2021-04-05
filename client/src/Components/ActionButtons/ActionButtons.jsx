@@ -79,14 +79,11 @@ const ActionButtons = ({id, click}) => {
       console.error(err)
   }
   }
-  
-  const handleMatch = () => {
-    
-  }
 
   return (
     <ActionContainer>
       <Dislike onClick={(e)=> {
+
         click()
         updateUser(e)
       }}>
@@ -98,10 +95,9 @@ const ActionButtons = ({id, click}) => {
       </Superlike>
       
       <Like onClick={(e)=> {
-        click()
-        updateUser(e)
         if (getMatch()) {
-          handleMatch()
+        updateUser(e)
+        console.log('matched')
         }
       }}>
         <BsHeartFill/>

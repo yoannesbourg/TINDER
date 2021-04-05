@@ -27,6 +27,7 @@ justify-content: center;
 const App = () => {
 
   const [user, setUser] = useState([{}])
+  const [matched, match] = useState(false)
 
 
   const getUser = async () => {
