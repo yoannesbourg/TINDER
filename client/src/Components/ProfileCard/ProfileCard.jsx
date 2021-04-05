@@ -26,7 +26,7 @@ const Loader = styled.div`
 
 const ProfileCard = ({userData, matched}) => {
 
- const Card = styled.div`
+ const MatchedCard = styled.div`
     width: 100%;
     height: 350px;
     margin-top: 32px;
@@ -48,11 +48,63 @@ const ProfileCard = ({userData, matched}) => {
       top: 0;
       left: 0;
       position: absolute;
-      opacity: 0.7;
+      opacity: 0.75;
       z-index: 1;
       border-radius: 20px;
     }
  `
+
+ const MatchedThumbnail = styled.div`
+    background-image: url(${userData.photo});
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ `
+  const MatchText = styled.div`
+    color: white;
+    z-index: 1;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Dancing Script', cursive;
+    font-size: 35px;
+  `
+
+  const ContinueSwiping = styled.button`
+    border: none;
+
+    margin: 32px 0;
+    border-radius: 8px;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    outline: none;
+    transition: ease-in-out .2s;
+    z-index: 1;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    cursor: pointer;
+
+    &:hover {
+    opacity: .8;
+    }
+  `
 
   const oldCard = styled.div`
     width: 100%;
@@ -75,9 +127,11 @@ const ProfileCard = ({userData, matched}) => {
           <RiLoader5Line/>
         </Loader>
         :
-        <Card>
-          <CardTitle>{userData.name}, 25</CardTitle>
-        </Card>  
+        <MatchedCard>
+          <MatchedThumbnail></MatchedThumbnail>
+          <MatchText>It's a match!</MatchText>
+          <ContinueSwiping>Continue</ContinueSwiping>
+        </MatchedCard>  
       }       
     </>
 
@@ -87,3 +141,6 @@ const ProfileCard = ({userData, matched}) => {
 export default ProfileCard
 
 
+{/* <MatchedCard>
+<CardTitle>{userData.name}, 25</CardTitle>
+</MatchedCard>   */}
