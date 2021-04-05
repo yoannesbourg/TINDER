@@ -24,7 +24,7 @@ const Loader = styled.div`
   animation: ${loading} infinite .5s linear;
 `
 
-const ProfileCard = ({userData, matched}) => {
+const ProfileCard = ({userData, matched, click}) => {
 
  const MatchedCard = styled.div`
     width: 100%;
@@ -122,17 +122,7 @@ const ProfileCard = ({userData, matched}) => {
 
   return (
     <>
-      {!userData.name?
-        <Loader>
-          <RiLoader5Line/>
-        </Loader>
-        :
-        <MatchedCard>
-          <MatchedThumbnail></MatchedThumbnail>
-          <MatchText>It's a match!</MatchText>
-          <ContinueSwiping>Continue</ContinueSwiping>
-        </MatchedCard>  
-      }       
+    
     </>
 
   )
@@ -144,3 +134,16 @@ export default ProfileCard
 {/* <MatchedCard>
 <CardTitle>{userData.name}, 25</CardTitle>
 </MatchedCard>   */}
+
+
+// {!userData.name?
+//   <Loader>
+//     <RiLoader5Line/>
+//   </Loader>
+//   :
+//   <MatchedCard>
+//     <MatchedThumbnail></MatchedThumbnail>
+//     <MatchText>It's a match!</MatchText>
+//     <ContinueSwiping onClick={click}>Continue</ContinueSwiping>
+//   </MatchedCard>  
+// }  
