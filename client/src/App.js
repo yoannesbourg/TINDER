@@ -41,6 +41,10 @@ const App = () => {
     }
   } 
 
+  const handleMatch = () => {
+    match(!matched)
+  }
+
   const handleClick = () => {
     getUser()
   }
@@ -49,7 +53,7 @@ const App = () => {
     <div className="App">
       <AppMain>
         <Navigation />
-         {!user[0].name? <NoMoreUsers><p>No more users to swipe</p></NoMoreUsers> : <ProfileCard userData={user[0]} matched={matched}/>}
+         {!user[0].name? <NoMoreUsers><p>No more users to swipe</p></NoMoreUsers> : <ProfileCard userData={user[0]} matched={matched} handleMatch={handleMatch}/>}
         <ActionButtons id={user[0].id} click={handleClick}/>
       </AppMain>
     </div>

@@ -51,7 +51,7 @@ const Superlike = styled(ActionButton)`
 const Like = styled(ActionButton)``
 
 
-const ActionButtons = ({id, click}) => {
+const ActionButtons = ({id, click, handleMatch}) => {
 
   const [description, setDescription] = useState('its matched')
 
