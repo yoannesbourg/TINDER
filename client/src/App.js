@@ -49,7 +49,7 @@ const App = () => {
     <div className="App">
       <AppMain>
         <Navigation />
-         {!user[0].name? <NoMoreUsers><p>No more users to swipe</p></NoMoreUsers> : <ProfileCard userData={user[0]}/>}
+         {!user[0].name? <NoMoreUsers><p>No more users to swipe</p></NoMoreUsers> : <ProfileCard userData={user[0]} matched={matched}/>}
         <ActionButtons id={user[0].id} click={handleClick}/>
       </AppMain>
     </div>
