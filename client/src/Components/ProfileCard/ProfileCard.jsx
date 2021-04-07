@@ -127,7 +127,7 @@ const ProfileCard = ({userData, matched, click}) => {
     <RiLoader5Line/>
   </Loader>)
   :
-  matched? (
+[  matched? (
     <MatchedCard>
     <MatchedThumbnail></MatchedThumbnail>
     <MatchText>It's a match!</MatchText>
@@ -136,7 +136,7 @@ const ProfileCard = ({userData, matched, click}) => {
   ) : 
   (<Card>
     <CardTitle>{userData.name}, 25</CardTitle>
-    </Card> )
+    </Card> )]
 }  
     </>
   )
