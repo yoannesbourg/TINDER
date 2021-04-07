@@ -64,7 +64,7 @@ app.delete("/users/:id", async (req, res) => {
 })
 
 
-//Set liked to true
+//Set swiped to true
 app.put("/users/:id", async (req, res) => {
     try {
         const { id } = req.params
