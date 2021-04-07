@@ -106,7 +106,7 @@ const ProfileCard = ({userData, matched, click}) => {
     }
   `
 
-  const oldCard = styled.div`
+  const Card = styled.div`
     width: 100%;
     height: 350px;
     margin-top: 32px;
@@ -122,28 +122,25 @@ const ProfileCard = ({userData, matched, click}) => {
 
   return (
     <>
-    
+  {!userData.name?
+  (<Loader>
+    <RiLoader5Line/>
+  </Loader>)
+  :
+  matched? (
+    <MatchedCard>
+    <MatchedThumbnail></MatchedThumbnail>
+    <MatchText>It's a match!</MatchText>
+    <ContinueSwiping onClick={click}>Continue</ContinueSwiping>
+  </MatchedCard>  
+  ) : 
+  (<Card>
+    <CardTitle>{userData.name}, 25</CardTitle>
+    </Card> )
+}  
     </>
-
   )
 }
 
 export default ProfileCard
 
-
-{/* <MatchedCard>
-<CardTitle>{userData.name}, 25</CardTitle>
-</MatchedCard>   */}
-
-
-// {!userData.name?
-//   <Loader>
-//     <RiLoader5Line/>
-//   </Loader>
-//   :
-//   <MatchedCard>
-//     <MatchedThumbnail></MatchedThumbnail>
-//     <MatchText>It's a match!</MatchText>
-//     <ContinueSwiping onClick={click}>Continue</ContinueSwiping>
-//   </MatchedCard>  
-// }  
