@@ -73,7 +73,7 @@ const ActionButtons = ({id, click, handleMatch}) => {
     try {
       const response = await fetch(`http://localhost:5000/liked/${id}`)
       const jsonData = await response.json()
-      return console.log(jsonData)
+      return jsonData
       
   } catch (err) {
       console.error(err)
@@ -96,8 +96,10 @@ const ActionButtons = ({id, click, handleMatch}) => {
       
       <Like onClick={(e)=> {
         if (getMatch()) {
-        updateUser(e)
+          updateUser(e)
         console.log('matched')
+        } else {
+          console.log('Not match')
         }
       }}>
         <BsHeartFill/>
