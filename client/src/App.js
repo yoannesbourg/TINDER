@@ -41,8 +41,8 @@ const App = () => {
     }
   } 
 
-  const handleMatch = () => {
-    match(!matched)
+  const handleMatch = (likestate) => {
+    match(likestate)
   }
 
   const handleClick = () => {
