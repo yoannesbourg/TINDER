@@ -54,7 +54,7 @@ const Like = styled(ActionButton)``
 const ActionButtons = ({id, click, handleMatch}) => {
 
   const [description, setDescription] = useState('its matched')
-  const [user, setUser] = useState()
+  const [liked, setLike] = useState()
 
   const updateUser = async (e) => {
     e.preventDefault()
@@ -74,7 +74,7 @@ const ActionButtons = ({id, click, handleMatch}) => {
     try {
       const response = await fetch(`http://localhost:5000/liked/${id}`)
       const jsonData = await response.json()
-      return jsonData
+      setLike(jsonData)
       
   } catch (err) {
       console.error(err)
@@ -82,28 +82,32 @@ const ActionButtons = ({id, click, handleMatch}) => {
   }
 
   const handleLike = () => {
-    console.log(getMatch())
+    handleMatch(liked)
   }
 
-  return (
-    <ActionContainer>
-      <Dislike onClick={(e)=> {
-
-        click()
-        updateUser(e)
-      }}>
-        <HiX/>
-      </Dislike>
-      
-      <Superlike>
-        <BsStarFill/>
-      </Superlike>
-      
-      <Like onClick={handleLike}>
-        <BsHeartFill/>
-      </Like>
-    </ActionContainer>
+  return (<div>
+    {!liked? 
+     <ActionContainer>
+     <Dislike onClick={(e)=> {
+     
+       click()
+       updateUser(e)
+     }}>
+       <HiX/>
+     </Dislike>
+     
+     <Superlike>
+       <BsStarFill/>
+     </Superlike>
+     
+     <Like onClick={handleLike}>
+       <BsHeartFill/>
+     </Like>
+     </ActionContainer> 
+    :<p>liked</p>}
+  </div>
   )
 }
 
 export default ActionButtons;
+
