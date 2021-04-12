@@ -84,7 +84,7 @@ const ActionButtons = ({id, click, handleMatch}) => {
   const handleLike = () => {
     handleMatch(liked)
   }
-
+  console.log(handleMatch)
   return (<div>
     {!liked? 
      <ActionContainer>
