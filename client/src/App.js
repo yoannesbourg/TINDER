@@ -27,7 +27,7 @@ justify-content: center;
 const App = () => {
 
   const [user, setUser] = useState([{}])
-  const [matched, match] = useState()
+  const [matched, match] = useState(false)
 
 
   const getUser = async () => {
@@ -41,8 +41,8 @@ const App = () => {
     }
   } 
 
-  const handleMatch = (likestate) => {
-    match(likestate)
+  const handleMatch = () => {
+    match(true)
   }
 
   const handleClick = () => {
