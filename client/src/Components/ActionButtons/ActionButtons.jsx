@@ -53,8 +53,7 @@ const Like = styled(ActionButton)``
 
 const ActionButtons = ({id, click, handleMatch}) => {
 
-  const [description, setDescription] = useState('its matched')
-  const [liked, setLike] = useState(false)
+  const [liked, setLike] = useState()
 
   const updateUser = async (e) => {
     e.preventDefault()
@@ -83,12 +82,13 @@ const ActionButtons = ({id, click, handleMatch}) => {
 
   const handleLike = () => {
     handleMatch(liked)
+    
   }
 
   useEffect(() => {
     getMatch()
-    console.log(liked)
   },[])
+  console.log(liked)
 
   return (<div>
     {!liked? 
@@ -105,7 +105,10 @@ const ActionButtons = ({id, click, handleMatch}) => {
        <BsStarFill/>
      </Superlike>
      
-     <Like onClick={handleLike}>
+     <Like onClick={(e) => {
+       handleLike()
+       !liked? click() : console.log('do nothing')
+     }}>
        <BsHeartFill/>
      </Like>
      </ActionContainer> 
@@ -114,5 +117,5 @@ const ActionButtons = ({id, click, handleMatch}) => {
   )
 }
 
-export default ActionButtons;
+export default ActionButtons
 
