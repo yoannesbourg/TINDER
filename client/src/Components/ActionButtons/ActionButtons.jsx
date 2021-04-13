@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { BsHeartFill } from "react-icons/bs"
 import { BsStarFill } from "react-icons/bs"
 import { HiX } from "react-icons/hi"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // import { updateUser } from '../updateUser'
 
 
@@ -54,7 +54,7 @@ const Like = styled(ActionButton)``
 const ActionButtons = ({id, click, handleMatch}) => {
 
   const [description, setDescription] = useState('its matched')
-  const [liked, setLike] = useState()
+  const [liked, setLike] = useState(false)
 
   const updateUser = async (e) => {
     e.preventDefault()
@@ -84,7 +84,12 @@ const ActionButtons = ({id, click, handleMatch}) => {
   const handleLike = () => {
     handleMatch(liked)
   }
-  console.log(handleMatch)
+
+  useEffect(() => {
+    getMatch()
+    console.log(liked)
+  },[])
+
   return (<div>
     {!liked? 
      <ActionContainer>
