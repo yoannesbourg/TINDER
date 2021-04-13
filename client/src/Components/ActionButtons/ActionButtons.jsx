@@ -4,9 +4,6 @@ import { BsHeartFill } from "react-icons/bs"
 import { BsStarFill } from "react-icons/bs"
 import { HiX } from "react-icons/hi"
 import { useEffect, useState } from 'react'
-// import { updateUser } from '../updateUser'
-
-
 
 const ActionContainer = styled.div`
   display: flex;
@@ -53,7 +50,7 @@ const Like = styled(ActionButton)``
 
 const ActionButtons = ({id, click, handleMatch}) => {
 
-  const [liked, setLike] = useState()
+  const [likedYou, setLikedYou] = useState()
 
   const updateUser = async (e) => {
     e.preventDefault()
@@ -73,25 +70,24 @@ const ActionButtons = ({id, click, handleMatch}) => {
     try {
       const response = await fetch(`http://localhost:5000/liked/${id}`)
       const jsonData = await response.json()
-      setLike(jsonData)
-      
+      setLikedYou(jsonData)
   } catch (err) {
       console.error(err)
   }
   }
 
   const handleLike = () => {
-    handleMatch(liked)
+    handleMatch(likedYou)
     
   }
 
   useEffect(() => {
     getMatch()
   },[])
-  console.log(liked)
+  console.log(likedYou)
 
   return (<div>
-    {!liked? 
+    {!likedYou? 
      <ActionContainer>
      <Dislike onClick={(e)=> {
      
@@ -107,12 +103,12 @@ const ActionButtons = ({id, click, handleMatch}) => {
      
      <Like onClick={(e) => {
        handleLike()
-       !liked? click() : console.log('do nothing')
+       !likedYou? click() : console.log('do nothing')
      }}>
        <BsHeartFill/>
      </Like>
      </ActionContainer> 
-    :<p>liked</p>}
+    : console.log('She/he Likes you')}
   </div>
   )
 }
