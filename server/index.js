@@ -80,7 +80,7 @@ app.put("/users/:id", async (req, res) => {
 app.get("/user", async (req, res) => {
     try {
         //Get ids
-        const getAllUsersId = await pool.query("SELECT id FROM users WHERE liked = false")
+        const getAllUsersId = await pool.query("SELECT id FROM users WHERE swiped = false")
         const allUsersIds = getAllUsersId.rows
 
         //Push them into a array
