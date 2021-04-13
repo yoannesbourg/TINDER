@@ -41,8 +41,8 @@ const App = () => {
     }
   } 
 
-  const handleMatch = () => {
-    match(true)
+  const handleMatch = state => {
+    match(state)
   }
 
   const handleClick = () => {
