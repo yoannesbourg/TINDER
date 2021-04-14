@@ -83,8 +83,9 @@ const ActionButtons = ({id, click, handleMatch}) => {
 
   useEffect(() => {
     getMatch()
+    console.log(likedYou)
   },[])
-  console.log(likedYou)
+  
 
   return (<div>
     {!likedYou? 
