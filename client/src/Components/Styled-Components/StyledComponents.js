@@ -79,3 +79,22 @@ cursor: pointer;
 opacity: .8;
 }
 `
+
+export const AppMain = styled.main`
+  background-color: white;
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: var(--GreyText);
+`
+
+export const NoMoreUsers = styled.div`
+  width: 100%;
+  height: 350px;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`

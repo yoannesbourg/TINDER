@@ -4,25 +4,7 @@ import ProfileCard from './Components/ProfileCard/ProfileCard'
 import ActionButtons from './Components/ActionButtons/ActionButtons'
 import { useState } from 'react'
 import styled from "styled-components"
-
-const AppMain = styled.main`
-  background-color: white;
-  min-width: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--GreyText);
-`
-
-const NoMoreUsers = styled.div`
-width: 100%;
-height: 350px;
-margin-top: 32px;
-display: flex;
-align-items: center;
-justify-content: center;
-`
+import { AppMain, NoMoreUsers } from './Components/Styled-Components/StyledComponents'
 
 const App = () => {
 
