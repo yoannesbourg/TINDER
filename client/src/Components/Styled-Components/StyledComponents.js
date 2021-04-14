@@ -41,3 +41,41 @@ export const Superlike = styled(ActionButton)`
 `
 
 export const Like = styled(ActionButton)``
+
+export const MatchText = styled.div`
+color: white;
+z-index: 1;
+text-align: center;
+position: absolute;
+top: 70%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-family: 'Dancing Script', cursive;
+font-size: 35px;
+`
+
+export const ContinueSwiping = styled.button`
+border: none;
+
+margin: 32px 0;
+border-radius: 8px;
+font-size: 25px;
+display: flex;
+justify-content: center;
+align-items: center;
+background: none;
+outline: none;
+transition: ease-in-out .2s;
+z-index: 1;
+position: absolute;
+top: 80%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: white;
+font-family: 'Dancing Script', cursive;
+cursor: pointer;
+
+&:hover {
+opacity: .8;
+}
+`

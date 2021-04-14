@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components"
 import { RiLoader5Line } from "react-icons/ri"
+import { MatchText, ContinueSwiping } from '../Styled-Components/StyledComponents'
 
 const CardTitle = styled.h2`
   color: var(--white);
@@ -68,43 +69,6 @@ const ProfileCard = ({userData, matched, click}) => {
     left: 50%;
     transform: translate(-50%, -50%);
  `
-  const MatchText = styled.div`
-    color: white;
-    z-index: 1;
-    text-align: center;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Dancing Script', cursive;
-    font-size: 35px;
-  `
-
-  const ContinueSwiping = styled.button`
-    border: none;
-
-    margin: 32px 0;
-    border-radius: 8px;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
-    outline: none;
-    transition: ease-in-out .2s;
-    z-index: 1;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-family: 'Dancing Script', cursive;
-    cursor: pointer;
-
-    &:hover {
-    opacity: .8;
-    }
-  `
 
   const Card = styled.div`
     width: 100%;
