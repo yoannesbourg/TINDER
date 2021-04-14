@@ -120,6 +120,10 @@ const ProfileCard = ({userData, matched, click}) => {
     border-radius: 20px;
   `
 
+  const handleClick = () => {
+    click()
+  }
+
   return (
     <>
   {!userData.name?
@@ -131,7 +135,7 @@ const ProfileCard = ({userData, matched, click}) => {
     <MatchedCard>
     <MatchedThumbnail></MatchedThumbnail>
     <MatchText>It's a match!</MatchText>
-    <ContinueSwiping onClick={click}>Continue</ContinueSwiping>
+    <ContinueSwiping onClick={handleClick}>Continue</ContinueSwiping>
   </MatchedCard>  
   ) : 
   (<Card>
