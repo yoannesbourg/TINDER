@@ -2,7 +2,7 @@ import './App.css';
 import Navigation from './Components/Navigation/Navigation'
 import ProfileCard from './Components/ProfileCard/ProfileCard'
 import ActionButtons from './Components/ActionButtons/ActionButtons'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styled from "styled-components"
 
 const AppMain = styled.main`
@@ -57,7 +57,7 @@ const App = () => {
         <ActionButtons id={user[0].id} click={handleClick} handleMatch={handleMatch}/>
       </AppMain>
     </div>
-  );
+  )
 }
 
 export default App;
