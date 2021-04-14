@@ -90,7 +90,6 @@ const ActionButtons = ({id, click, handleMatch}) => {
   <div>
     <ActionContainer>
       <Dislike onClick={(e)=> {
-      
         click()
         updateUser(e)
       }}>
