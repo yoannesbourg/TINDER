@@ -83,33 +83,31 @@ const ActionButtons = ({id, click, handleMatch}) => {
 
   useEffect(() => {
     getMatch()
-    console.log(likedYou)
   },[])
   
 
-  return (<div>
-    {!likedYou? 
-     <ActionContainer>
-     <Dislike onClick={(e)=> {
-     
-       click()
-       updateUser(e)
-     }}>
-       <HiX/>
-     </Dislike>
-     
-     <Superlike>
-       <BsStarFill/>
-     </Superlike>
-     
-     <Like onClick={(e) => {
-       handleLike()
-       !likedYou? click() : console.log('do nothing')
-     }}>
-       <BsHeartFill/>
-     </Like>
+  return (
+  <div>
+    <ActionContainer>
+      <Dislike onClick={(e)=> {
+      
+        click()
+        updateUser(e)
+      }}>
+        <HiX/>
+      </Dislike>
+      
+      <Superlike>
+        <BsStarFill/>
+      </Superlike>
+      
+      <Like onClick={(e) => {
+        handleLike()
+        console.log(likedYou)
+      }}>
+        <BsHeartFill/>
+      </Like>
      </ActionContainer> 
-    : console.log('She/he Likes you')}
   </div>
   )
 }
